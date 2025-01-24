@@ -100,9 +100,6 @@
 .app__modal_close:active {
   border-color: transparent !important;
 }
-.app__modal_close svg {
-  pointer-events: none;
-}
 
 .crystal {
   position: relative;
