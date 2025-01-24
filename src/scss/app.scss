@@ -1,0 +1,77 @@
+.app {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &.open {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__modal {
+    position: relative;
+    overflow-y: scroll;
+    width: 512px;
+    height: fit-content;
+    min-height: 312px;
+    max-height: 512px;
+    padding: 20px;
+    background-image: url(../images/dark-noise.jpg);
+    background-size: cover;
+    margin: 4px;
+    border: 3px solid transparent;
+    border-image: url(../images/frame-border.png) 3 round;
+    border-radius: 2px;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.25), 0 0 6px 1px rgba(0, 0, 0, 0.5) inset;
+    transition: opacity 0.1s ease-out;
+    z-index: 1001;
+
+    &_title {
+      @include text-with-shadow(32px);
+      text-align: center;
+    }
+
+    &_close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-weight: bold;
+      font-size: 28px;
+      line-height: 18px;
+      color: rgba(255, 255, 255, 0.66);
+      text-shadow: 0 0 2px #000, 0 0 1px #000;
+      cursor: pointer;
+      padding: 1px 8px 7px 8px;
+      z-index: 1000;
+
+      &:hover {
+        color: #fff;
+        text-shadow: 0 0 2px #fff;
+      }
+
+      &:active {
+        border-color: transparent !important;
+      }
+
+      svg {
+        pointer-events: none;
+      }
+    }
+  }
+}

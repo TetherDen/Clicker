@@ -1,0 +1,222 @@
+.store {
+  width: 22%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+
+  &__title {
+    @include text-with-shadow(28px);
+    padding: 8px;
+    text-align: center;
+  }
+
+  &__help_info {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  &__section {
+    width: 100%;
+    position: relative;
+    overflow-y: hidden;
+    background: url(../images/panel-horizontal.png) repeat-x top;
+    background: url(../images/panel-gradient-left.png) no-repeat top left, url(../images/panel-gradient-right.png) no-repeat top right, url(../images/panel-horizontal.png) repeat-x;
+    padding-top: 16px;
+  }
+
+  &__product {
+    position: relative;
+    width: 100%;
+    height: 76px;
+    background: url(../images/store-tile-bg.png) repeat-x top;
+    background-size: cover;
+
+    &:nth-of-type(2) {
+      top: -6px;
+    }
+
+    &:nth-of-type(3) {
+      top: -12px;
+    }
+
+    &:nth-of-type(4) {
+      top: -18px;
+    }
+
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.6));
+    }
+
+    &:hover {
+      z-index: 1;
+      &:after {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4));
+      }
+    }
+
+    &_content {
+      position: relative;
+      display: flex;
+      padding: 8px;
+      width: 100%;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    &_img_wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      margin-right: 16px;
+    }
+
+    &_img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    &_name {
+      @include text-with-shadow(28px);
+    }
+
+    &_price {
+      position: relative;
+      padding-left: 14px;
+      @include text-with-shadow(14px);
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 1px;
+        width: 10px;
+        height: 10px;
+        z-index: 2;
+        background-image: url(../images/crystal.png);
+        background-size: cover;
+        background-position: center;
+      }
+    }
+
+    &_count {
+      align-content: center;
+      margin-left: auto;
+      margin-right: 8px;
+      z-index: 1;
+      @include text-with-shadow(28px, rgba(255, 255, 255, 0.5));
+
+      &.active {
+        color: white;
+      }
+    }
+
+    &_border {
+      &_vertical,
+      &_horizontal{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      &_vertical {
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 100%;
+          background-image: url(../images/panel-horizontal.png);
+          height: 6px;
+        }
+
+        &::before {
+          top: 0;
+        }
+
+        &::after {
+          bottom: 0;
+        }
+      }
+
+      &_horizontal {
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          width: 6px;
+          height: 100%;
+          background-image: url(../images/panel-vertical.png);
+        }
+
+        &::before {
+          left: 0;
+        }
+
+        &::after {
+          right: 0;
+        }
+      }
+    }
+  }
+
+  &__info {
+    &_list {
+      padding-left: 0;
+      &_item {
+        position: relative;
+        list-style-type: none;
+
+        &:not(:last-of-type) {
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    &_product {
+      &_img_wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        margin-right: 8px;
+      }
+
+      &_img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+
+      &_name {
+        @include text-with-shadow(24px);
+      }
+
+      &_description {
+        font-style: italic;
+        font-size: 14px;
+        line-height: 18px;
+        opacity: .8;
+        color: #fff;
+        margin: 0;
+      }
+    }
+  }
+}
