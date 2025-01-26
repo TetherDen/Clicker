@@ -19,6 +19,8 @@ pickBtn.addEventListener("click", () =>{
     if(PlayerScore >= pickPrice) {
         PlayerScore -= pickPrice;
         currentPickLevel++;
+        // TODO Pick Income ?!
+
         updatePickDisplay();
         console.log(`Pick upgraded to level: ${currentPickLevel}, Remaining score: ${PlayerScore}`);        // После тестов log убрать
     }
