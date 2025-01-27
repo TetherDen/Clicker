@@ -6,6 +6,14 @@
   font-weight: 400;
   font-style: normal;
   box-sizing: border-box;
+  user-select: none;
+}
+
+label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
+  padding: 2px 8px;
 }
 
 .background-canvas {
@@ -57,6 +65,7 @@
 }
 .app__modal {
   position: relative;
+  display: none;
   overflow-y: scroll;
   width: 512px;
   height: fit-content;
@@ -72,6 +81,9 @@
   box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.25), 0 0 6px 1px rgba(0, 0, 0, 0.5) inset;
   transition: opacity 0.1s ease-out;
   z-index: 1001;
+}
+.app__modal.open {
+  display: block;
 }
 .app__modal_title {
   font-size: 32px;
@@ -99,6 +111,9 @@
 }
 .app__modal_close:active {
   border-color: transparent !important;
+}
+.app__modal_close svg {
+  pointer-events: none;
 }
 
 .crystal {
@@ -251,7 +266,7 @@
   background-size: cover;
   background-position: center;
 }
-.store__product_count {
+.store__product_level {
   align-content: center;
   margin-left: auto;
   margin-right: 8px;
@@ -261,7 +276,7 @@
   color: rgba(255, 255, 255, 0.5);
   text-shadow: 1px 0 0 #000, -1px 0px 0px #000, 0px 1px 0px #000, 0px -1px 0px #000, 0px 1px 4px #000;
 }
-.store__product_count.active {
+.store__product_level.active {
   color: white;
 }
 .store__product_border_vertical, .store__product_border_horizontal {
@@ -333,6 +348,47 @@
   opacity: 0.8;
   color: #fff;
   margin: 0;
+}
+
+.settings {
+  position: absolute;
+  top: 10px;
+  left: 6px;
+  padding: 2px 4px;
+  background-color: black;
+  background-image: url(../images/dark-noise.jpg);
+  background-size: cover;
+  border: 1px solid transparent;
+  border-image: url(../images/frame-border.png) 2 round;
+  z-index: 100;
+  cursor: pointer;
+}
+.settings__line {
+  padding: 4px 0;
+  font-size: 13px;
+}
+.settings__button {
+  display: inline-block;
+  vertical-align: middle;
+  width: 130px;
+  padding: 0 8px;
+  margin-right: 6px;
+  text-align: right;
+  border: 1px solid #e2dd48;
+  border-color: #ece2b6 #875526 #733726 #dfbc9a;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+.settings__button:hover {
+  border-color: #fff;
+  color: #fff;
+}
+.settings__button:active {
+  border-color: #c6c6c6;
+  color: #c6c6c6;
 }
 
 /*# sourceMappingURL=index.css.map */
