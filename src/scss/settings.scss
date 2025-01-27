@@ -1,0 +1,44 @@
+.settings {
+  position: absolute;
+  top: 10px;
+  left: 6px;
+  padding: 2px 4px;
+  background-color: black;
+  background-image: url(../images/dark-noise.jpg);
+  background-size: cover;
+  border: 1px solid transparent;
+  border-image: url(../images/frame-border.png) 2 round;
+  z-index: 100;
+  cursor: pointer;
+
+  &__line {
+    padding: 4px 0;
+    font-size: 13px;
+  }
+
+  &__button {
+    display: inline-block;
+    vertical-align: middle;
+    width: 130px;
+    padding: 0 8px;
+    margin-right: 6px;
+    text-align: right;
+    border: 1px solid #e2dd48;
+    border-color: #ece2b6 #875526 #733726 #dfbc9a;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #fff;
+      color: #fff;
+    }
+
+    &:active {
+      border-color: #c6c6c6;
+      color: #c6c6c6;
+    }
+  }
+}
