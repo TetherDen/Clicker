@@ -1,3 +1,4 @@
+import {DiamondAnimation} from './DiamondAnimation.js';
 import {Game} from './Game.js'
 import './modal.js'
 
@@ -12,9 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const img = new Image();
     img.src = './src/images/background-canvas.jpg';
+
     img.onload = () => {
         ctx.drawImage(img, 0, 0, canvasBg.width, canvasBg.height);
+        new DiamondAnimation(".background-canvas", img,50);
     };
 
     Game.fillStore();
 });
+

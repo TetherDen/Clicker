@@ -1,10 +1,17 @@
 import {Pick} from "./products/Pick.js";
 import {Tnt} from "./products/Tnt.js";
+import { Trolley } from "./products/Trolley.js";
+import { DrillingMachine } from "./products/DrillingMachine.js";
+import { Excavator } from "./products/Excavator.js";
 
 export class Game {
     static products = [
+        // (img, name, income, price, multiplier, level)
         new Pick("pick.png", "Pick", 0.5, 20, 1.15, 0),
-        new Tnt("tnt.png", "Tnt", 3.8, 100, 1.755, 0)
+        new Tnt("tnt.png", "Tnt", 3.8, 100, 1.755, 0),
+        new Trolley("trolley.png", "Trolley", 1.5, 50, 1.15, 0),
+        new DrillingMachine("drilling_machine.webp", "D-Machine", 10, 500, 1.20, 0),
+        new Excavator("excavator.png", "Excavator", 20, 1100, 1.20, 0),
     ];
     static storeElement = document.getElementById('store-section');
     static scorePointsElement = document.getElementById('score_points');
