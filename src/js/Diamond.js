@@ -6,13 +6,14 @@ export class Diamond {
         this.x = Math.random() * canvas.width;
         this.y = -30;
 
-        this.size = 15 + Math.random() * 25;    // размер 15-40px
+        this.size = 15 + Math.random() * 20;    // размер 15-35px
         this.speed = 1 + Math.random() * 2;     // скорость 1-3 px/frame
 
         this.rotation = Math.random() * Math.PI * 2;        // текущий угол поворота
         this.rotationSpeed = (Math.random() - 0.05) * 0.02;     // cкорость вращения
-        this.image = new Image();
-        this.image.src = "./src/images/crystal.png";  
+
+        // this.image = new Image();
+        // this.image.src = "./src/images/crystal.png";  
 
     }
 
@@ -29,6 +30,7 @@ export class Diamond {
         this.rotation += this.rotationSpeed;
         return this.y < this.canvas.height + 30;     // true если алмаз еще в кадре
     }
-
-
 }
+
+Diamond.prototype.image = new Image();
+Diamond.prototype.image.src = "./src/images/crystal.png";
