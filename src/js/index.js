@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     img.onload = () => {
         ctx.drawImage(img, 0, 0, canvasBg.width, canvasBg.height);
-        new DiamondAnimation(".background-canvas", img,50);
+        new DiamondAnimation(".background-canvas", img);
     };
 
     Game.fillStore();
