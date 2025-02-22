@@ -21,6 +21,10 @@ export class Product {
         if (this.priceElement && this.levelElement) {
             this.priceElement.textContent = this.price.toFixed(1);
             this.levelElement.textContent = this.level;
+
+            if (!this.levelElement.classList.contains('active') && this.level > 0) {
+                this.levelElement.classList.add('active');
+            }
         }
     }
 

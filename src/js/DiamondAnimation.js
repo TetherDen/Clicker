@@ -1,12 +1,10 @@
 import { Diamond } from "./Diamond.js";
-import { Game } from "./Game.js";
 
 export class DiamondAnimation {
-    constructor(canvasSelector, backgroundImage) {
+    constructor(canvasSelector) {
         this.canvas = document.querySelector(canvasSelector);
         this.ctx = this.canvas.getContext("2d");
         this.diamonds = [];
-        this.backgroundImage = backgroundImage;
 
         this.currentMaxCrystals = 0;        // Текущий максимум кристалов
         this.totalMaxCrystals = 200;        // Всего максимум кристалов
@@ -41,25 +39,21 @@ export class DiamondAnimation {
 
     updateMaxDiamonds() {
         const currentScore = Game.getScore();
-    
+
         if (currentScore >= this.requiredScoreForNewDiamond && this.currentMaxCrystals < this.totalMaxCrystals) {
             this.currentMaxCrystals++;
             this.requiredScoreForNewDiamond = Math.floor(this.requiredScoreForNewDiamond * 1.3);
-            
+
             // Уменьшаем максимальный и минимальный интервалы
             this.maxSpawnInterval = Math.max(this.minSpawnInterval, Math.floor(this.maxSpawnInterval * 0.85));
-            this.minSpawnInterval = Math.max(5, Math.floor(this.minSpawnInterval * 0.9));  // 5 - mininterval spawn   
+            this.minSpawnInterval = Math.max(5, Math.floor(this.minSpawnInterval * 0.9));  // 5 - mininterval spawn
         }
     }
 
     animate() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        if (this.backgroundImage.complete) {
-            this.ctx.drawImage(this.backgroundImage, 0, 0, this.canvas.width, this.canvas.height);
-        }
-
-        // Удаляем невидимые алмазы
+        // фильтр чистить ненжные алмазы
         this.diamonds = this.diamonds.filter(diamond => {
             const isVisible = diamond.update();
             diamond.draw();
