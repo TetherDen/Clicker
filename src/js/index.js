@@ -2,6 +2,11 @@ import {DiamondAnimation} from './DiamondAnimation.js';
 import {Game} from './Game.js'
 import './modal.js'
 import './goldenCrystal.js'
+import { initializeSettings } from './settings.js';
+
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,5 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     canvasContent.height = canvasContent.offsetHeight;
     new DiamondAnimation("#canvas-content",50);
     Game.fillStore();
+    initializeSettings();
+    
 });
 

@@ -1,4 +1,5 @@
 import {Game} from "../Game.js";
+import { playToolUpgradeSound } from "../soundManager.js";
 
 export class Product {
     priceElement = null;
@@ -32,6 +33,7 @@ export class Product {
         const score = Game.getScore();
 
         if (score >= this.price) {
+            playToolUpgradeSound();
             Game.setScore(score - this.price)
             this.level += 1;
             this.price = this.calculatePrice();
