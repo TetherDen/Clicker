@@ -15,32 +15,36 @@
 <body>
 
 <div class="app">
-    <canvas class="background-canvas" style="background: transparent;"></canvas>
-    <div class="settings" data-modal-id="settings_modal">
+    <canvas id="canvas-background" style="background: transparent;"></canvas>
+    <canvas id="canvas-content"></canvas>
+    <div class="settings" data-modal-id="settings-modal">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-gear"
              viewBox="0 0 16 16">
             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
             <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
         </svg>
     </div>
-    <div class="board">
+    <div class="board" id="board">
         <div class="board__top-bar"></div>
         <div class="crystal">
             <div class="crystal__wrapper">
                 <div class="crystal__points">
-                    <span id="score_points" class="me-1">1000</span> points            <!-- score_points? = 1000 -->
+                    <span id="score-points" class="me-1">1000</span> points
                 </div>
                 <div class="crystal__item">
                     <img src="./src/images/crystal.png" alt="">
                 </div>
             </div>
         </div>
+        <div id="golden-crystal" class="golden-crystal">
+            <img src="src/images/gold-crystal.png" alt="gold-crystal">
+        </div>
     </div>
     <div class="separator"></div>
     <div class="store">
         <div class="position-relative">
             <div class="store__title">Store</div>
-            <button class="store__help_info btn p-0" data-modal-id="store_info_modal">
+            <button class="store__info_button btn p-0" data-modal-id="store-info-modal">
                 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                      stroke="#fff">
                     <circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="2"></circle>
@@ -49,72 +53,14 @@
                 </svg>
             </button>
         </div>
-        <div class="store__section" id="store-section">
-<!--            <div class="store__product">-->
-<!--                <span class="store__product_border_vertical"></span>-->
-<!--                <span class="store__product_border_horizontal"></span>-->
-<!--                <div class="store__product_content" id="pick_btn">-->
-<!--                    <div class="store__product_img_wrapper">-->
-<!--                        <img class="store__product_img" src="src/images/products/pick.png" alt=""-->
-<!--                             style="transform: rotate(-40deg)">-->
-<!--                    </div>-->
-<!--                    <div class="align-content-center">-->
-<!--                        <div class="store__product_name">Pick</div>-->
-<!--                        <div class="store__product_price">???</div>-->
-<!--                    </div>-->
-<!--                    <div class="store__product_level active">1</div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="store__product">-->
-<!--                <span class="store__product_border_vertical"></span>-->
-<!--                <span class="store__product_border_horizontal"></span>-->
-<!--                <div class="store__product_content">-->
-<!--                    <div class="store__product_img_wrapper">-->
-<!--                        <img class="store__product_img" src="src/images/products/TNT.png" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="align-content-center">-->
-<!--                        <div class="store__product_name">TNT</div>-->
-<!--                        <div class="store__product_price">???</div>-->
-<!--                    </div>-->
-<!--                    <div class="store__product_level">0</div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="store__product">-->
-<!--                <span class="store__product_border_vertical"></span>-->
-<!--                <span class="store__product_border_horizontal"></span>-->
-<!--                <div class="store__product_content">-->
-<!--                    <div class="store__product_img_wrapper">-->
-<!--                        <img class="store__product_img" src="src/images/products/trolley.png" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="align-content-center">-->
-<!--                        <div class="store__product_name">Trolley</div>-->
-<!--                        <div class="store__product_price">???</div>-->
-<!--                    </div>-->
-<!--                    <div class="store__product_level">0</div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="store__product">-->
-<!--                <span class="store__product_border_vertical"></span>-->
-<!--                <span class="store__product_border_horizontal"></span>-->
-<!--                <div class="store__product_content" id="mine_btn">-->
-<!--                    <div class="store__product_img_wrapper">-->
-<!--                        <img class="store__product_img" src="src/images/products/mine.png" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="align-content-center">-->
-<!--                        <div class="store__product_name">Mine</div>-->
-<!--                        <div class="store__product_price">???</div>-->
-<!--                    </div>-->
-<!--                    <div class="store__product_level">0</div>-->
-<!--                </div>-->
-<!--            </div>-->
-        </div>
+        <div class="store__section" id="store-section"></div>
     </div>
 </div>
 
 
 <!-- modals -->
 <div class="app__overlay js--overlay">
-    <div class="app__modal js--modal" id="store_info_modal">
+    <div class="app__modal js--modal" id="store-info-modal">
         <h3 class="app__modal_title">Store Info</h3>
         <ul class="store__info_list">
             <li class="store__info_list_item">
@@ -162,7 +108,7 @@
         <button class="app__modal_close btn p-0 js--modal_close">x</button>
     </div>
 
-    <div class="app__modal js--modal" id="settings_modal">
+    <div class="app__modal js--modal" id="settings-modal">
         <h3 class="app__modal_title">Settings</h3>
         <div class="settings__content">
             <div class="settings__line">
