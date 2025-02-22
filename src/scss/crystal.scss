@@ -20,15 +20,21 @@
     img {
       width: 240px;
       height: 160px;
-      opacity: 0.8;
+      opacity: 1;
       cursor: pointer;
       filter: drop-shadow(0 0 10px #C5CFD1FF);
       transition: filter 0.3s ease-in-out;
-      animation: light-crystal 3s ease-in-out infinite;
+      animation: light-shine 3s ease-in-out infinite;
+    }
+
+    &.golden {
+      img {
+        animation: golden-shine 1s ease-in-out infinite;
+      }
     }
   }
 
-  @keyframes light-crystal {
+  @keyframes light-shine {
     0% {
       filter: drop-shadow(0 0 10px #C5CFD1FF);
     }
@@ -39,4 +45,17 @@
       filter: drop-shadow(0 0 10px #C5CFD1FF);
     }
   }
+
+  @keyframes golden-shine {
+    0% {
+      filter: drop-shadow(0 0 20px #FFD700);
+    }
+    50% {
+      filter: drop-shadow(0 0 40px #FFD700);
+    }
+    100% {
+      filter: drop-shadow(0 0 20px #FFD700);
+    }
+  }
+
 }
