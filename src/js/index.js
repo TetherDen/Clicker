@@ -1,6 +1,9 @@
 import {DiamondAnimation} from './DiamondAnimation.js';
 import {Game} from './Game.js'
 import './modal.js'
+import { initializeSettings } from './settings.js';
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,5 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     Game.fillStore();
+    initializeSettings();
+    
 });
 

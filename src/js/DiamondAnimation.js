@@ -12,8 +12,8 @@ export class DiamondAnimation {
         this.totalMaxCrystals = 200;        // Всего максимум кристалов
 
         this.requiredScoreForNewDiamond = 100;  // Начальный порог
-        this.maxSpawnInterval = 1500;           // Начальный интервал появления кристаллов
-        this.minSpawnInterval = 1000;           // Минимальный интервал появления
+        this.maxSpawnInterval = 1500;           // Начальный макс интервал появления кристаллов
+        this.minSpawnInterval = 1000;           // Начальный Минимальный интервал появления
 
         this.spawnDiamonds();
         this.animate();
