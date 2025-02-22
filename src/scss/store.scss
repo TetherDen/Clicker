@@ -3,21 +3,13 @@
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 1;
 
   &__title {
     @include text-with-shadow(28px);
     padding: 8px;
     text-align: center;
-  }
-
-  &__help_info {
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    transform: translateY(-50%);
-    cursor: pointer;
   }
 
   &__section {
@@ -35,19 +27,6 @@
     height: 76px;
     background: url(../images/store-tile-bg.png) repeat-x top;
     background-size: cover;
-
-    &:nth-of-type(2) {
-      top: -6px;
-    }
-
-    &:nth-of-type(3) {
-      top: -12px;
-    }
-
-    &:nth-of-type(4) {
-      top: -18px;
-    }
-
 
     &:after {
       content: "";
@@ -177,6 +156,14 @@
   }
 
   &__info {
+    &_button {
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
     &_list {
       padding-left: 0;
       &_item {
