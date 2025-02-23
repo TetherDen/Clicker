@@ -1,4 +1,4 @@
-import {playBackgroundMusic, isMuted, toggleMute, setVolume, volume} from "./soundManager.js";
+import {playBackgroundMusic, toggleMute, setVolume, volume} from "./soundManager.js";
 import {Game} from "./Game.js";
 
 export function initializeSettings() {

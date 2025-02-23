@@ -1,5 +1,3 @@
-import { pressMenuBtnSound } from "./soundManager.js";
-
 const overlay = document.querySelector('.js--overlay');
 const openModalBtns = document.querySelectorAll('[data-modal-id]');
 
