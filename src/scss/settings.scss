@@ -12,8 +12,12 @@
   cursor: pointer;
 
   &__line {
+    display: flex;
+    align-items: center;
     padding: 4px 0;
     font-size: 13px;
+    gap: 6px;
+    color: white;
   }
 
   &__button {
@@ -21,7 +25,6 @@
     vertical-align: middle;
     width: 130px;
     padding: 0 8px;
-    margin-right: 6px;
     text-align: right;
     border: 1px solid #e2dd48;
     border-color: #ece2b6 #875526 #733726 #dfbc9a;
