@@ -2,10 +2,15 @@ import {Game} from "../Game.js";
 import { playToolUpgradeSound } from "../soundManager.js";
 
 export class Product {
+    static commonId = 1;
     priceElement = null;
     levelElement = null;
+    farmCallBack = () => {};
+    farmInterval = 0;
+    isBought = false;
 
     constructor(img, name, income, price, multiplier, level) {
+        this.id = Product.commonId++;
         this.img = img;
         this.name = name;
         this.income = income;
@@ -20,6 +25,7 @@ export class Product {
 
     updateDisplay() {
         if (this.priceElement && this.levelElement) {
+            console.log("updateDisplay");
             this.priceElement.textContent = this.price.toFixed(1);
             this.levelElement.textContent = this.level;
 
@@ -38,9 +44,12 @@ export class Product {
             this.level += 1;
             this.price = this.calculatePrice();
             this.updateDisplay();
-            return true;
+            if (!this.isBought) this.startFarmPoints();
         }
+    }
 
-        return false;
+    startFarmPoints() {
+        setInterval(() => this.farmCallBack(), this.farmInterval);
+        this.isBought = true;
     }
 }

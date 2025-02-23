@@ -1,19 +1,13 @@
 import { Product } from "./Product.js";
 import { Game } from "../Game.js";
-export class Tnt extends Product {
-    static isBought = false;
 
+export class Tnt extends Product {
     constructor(img, name, income, price, multiplier, level) {
         super(img, name, income, price, multiplier, level);
-    }
 
-    buy() {
-        if (super.buy() && !this.isBought) {
-            setInterval(() => {
-                Game.setScore(Game.getScore() + this.income);
-            }, 5000);
-
-            this.isBought = true;
-        }
+        this.farmInterval = 5000;
+        this.farmCallBack = () => {
+            Game.setScore(Game.getScore() + this.income);
+        };
     }
 }
