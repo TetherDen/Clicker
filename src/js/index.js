@@ -2,11 +2,8 @@ import {DiamondAnimation} from './DiamondAnimation.js';
 import {Game} from './Game.js'
 import './modal.js'
 import './goldenCrystal.js'
-import { initializeSettings } from './settings.js';
-
-
-
-
+import {initializeSettings} from './settings.js';
+import './localStorage.js'
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,9 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const canvasContent = document.querySelector("#canvas-content");
     canvasContent.width = canvasContent.offsetWidth;
     canvasContent.height = canvasContent.offsetHeight;
-    new DiamondAnimation("#canvas-content",50);
+
+    new DiamondAnimation("#canvas-content", 50);
+
     Game.fillStore();
+    Game.loadGameData();
     initializeSettings();
-    
+
+    setInterval(() => {
+        Game.saveGameData();
+    }, 30*1000);
 });
 

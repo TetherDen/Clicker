@@ -1,3 +1,5 @@
+import {dropGoldenDiamondSound, spawnGoldenDiamondSound} from "./soundManager.js";
+
 const crystal = document.getElementById('golden-crystal');
 const board = document.getElementById('board');
 
@@ -11,7 +13,7 @@ const minSpace = 30;
 // состояние отображение кристалика
 let isShow = true;
 let intervalId, timeoutId;
-const timeIntervalShow = 2 * 60 * 1000;
+const timeIntervalShow = 3 * 60 * 1000;
 
 function display() {
     // устанавливаем изначальные координаты
@@ -25,6 +27,7 @@ function display() {
     // показываем кристал
     crystal.style.display = 'block';
     crystal.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    spawnGoldenDiamondSound();
 
     isShow = true;
 
@@ -82,6 +85,7 @@ crystal.onclick = function () {
     // todo: вызов меттода что дает x2 на минуту
     isShow = false;
     crystal.style.display = 'none';
+    dropGoldenDiamondSound();
 
     clearInterval(intervalId);
     clearTimeout(timeoutId);

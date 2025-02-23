@@ -1,3 +1,4 @@
+import { Game } from "./Game.js";
 import { Diamond } from "./Diamond.js";
 
 export class DiamondAnimation {

@@ -16,12 +16,17 @@ label {
   padding: 2px 8px;
 }
 
-.background-canvas {
+#canvas-background,
+#canvas-content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+#canvas-content {
+  width: 78%;
 }
 
 .board {
@@ -34,8 +39,8 @@ label {
 .separator {
   width: 16px;
   height: 100%;
-  background: url(../images/panel-vertical.png) repeat-y;
-  background: url(../images/panel-gradient-top.png) no-repeat top left, url(../images/panel-gradient-bottom.png) no-repeat bottom left, url(../images/panel-vertical.png) repeat-y;
+  background: url(../../images/panel-vertical.png) repeat-y;
+  background: url(../../images/panel-gradient-top.png) no-repeat top left, url(../../images/panel-gradient-bottom.png) no-repeat bottom left, url(../../images/panel-vertical.png) repeat-y;
   z-index: 1;
 }
 
@@ -138,13 +143,16 @@ label {
 .crystal__item img {
   width: 240px;
   height: 160px;
-  opacity: 0.8;
+  opacity: 1;
   cursor: pointer;
   filter: drop-shadow(0 0 10px #c5cfd1);
   transition: filter 0.3s ease-in-out;
-  animation: light-crystal 3s ease-in-out infinite;
+  animation: light-shine 3s ease-in-out infinite;
 }
-@keyframes light-crystal {
+.crystal__item.golden img {
+  animation: golden-shine 1s ease-in-out infinite;
+}
+@keyframes light-shine {
   0% {
     filter: drop-shadow(0 0 10px #c5cfd1);
   }
@@ -155,13 +163,24 @@ label {
     filter: drop-shadow(0 0 10px #c5cfd1);
   }
 }
+@keyframes golden-shine {
+  0% {
+    filter: drop-shadow(0 0 20px #FFD700);
+  }
+  50% {
+    filter: drop-shadow(0 0 40px #FFD700);
+  }
+  100% {
+    filter: drop-shadow(0 0 20px #FFD700);
+  }
+}
 
 .store {
   width: 22%;
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 1;
 }
 .store__title {
@@ -171,13 +190,6 @@ label {
   text-shadow: 1px 0 0 #000, -1px 0px 0px #000, 0px 1px 0px #000, 0px -1px 0px #000, 0px 1px 4px #000;
   padding: 8px;
   text-align: center;
-}
-.store__help_info {
-  position: absolute;
-  top: 50%;
-  right: 8px;
-  transform: translateY(-50%);
-  cursor: pointer;
 }
 .store__section {
   width: 100%;
@@ -193,15 +205,6 @@ label {
   height: 76px;
   background: url(../images/store-tile-bg.png) repeat-x top;
   background-size: cover;
-}
-.store__product:nth-of-type(2) {
-  top: -6px;
-}
-.store__product:nth-of-type(3) {
-  top: -12px;
-}
-.store__product:nth-of-type(4) {
-  top: -18px;
 }
 .store__product:after {
   content: "";
@@ -312,6 +315,13 @@ label {
 .store__product_border_horizontal::after {
   right: 0;
 }
+.store__info_button {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 .store__info_list {
   padding-left: 0;
 }
@@ -364,15 +374,18 @@ label {
   cursor: pointer;
 }
 .settings__line {
+  display: flex;
+  align-items: center;
   padding: 4px 0;
   font-size: 13px;
+  gap: 6px;
+  color: white;
 }
 .settings__button {
   display: inline-block;
   vertical-align: middle;
   width: 130px;
   padding: 0 8px;
-  margin-right: 6px;
   text-align: right;
   border: 1px solid #e2dd48;
   border-color: #ece2b6 #875526 #733726 #dfbc9a;
@@ -391,10 +404,36 @@ label {
   color: #c6c6c6;
 }
 
-/*# sourceMappingURL=index.css.map */
+.golden-crystal {
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  display: none;
+  transition: transform 3s ease-out;
+  z-index: 1000;
+}
+.golden-crystal img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  animation: golden-crystal-shine 0.8s ease-in-out infinite;
+  filter: brightness(1.2);
+  cursor: pointer;
+}
 
-
-/* Start screen styles*/
+@keyframes golden-crystal-shine {
+  0% {
+    filter: drop-shadow(0 0 20px rgba(255, 177, 7, 0.7)) drop-shadow(0 0 10px rgba(255, 235, 59, 0.8));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px #ffb107) drop-shadow(0 0 15px #ffeb3b);
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(255, 177, 7, 0.7)) drop-shadow(0 0 10px rgba(255, 235, 59, 0.8));
+  }
+}
 .start-screen {
   position: fixed;
   top: 0;
@@ -408,25 +447,21 @@ label {
   text-align: center;
   z-index: 1000;
 }
-
 .start-screen__content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
-
 .start-screen__title {
   font-size: 3rem;
   color: white;
   font-weight: bold;
 }
-
 .start-screen__logo {
   width: 120px;
   height: auto;
 }
-
 .start-screen__button {
   background: #f39c12;
   border: none;
@@ -437,14 +472,8 @@ label {
   border-radius: 10px;
   transition: 0.3s;
 }
-
 .start-screen__button:hover {
   background: #e67e22;
 }
 
-
-
-
-
-
-
+/*# sourceMappingURL=index.css.map */
