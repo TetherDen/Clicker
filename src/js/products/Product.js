@@ -6,7 +6,7 @@ export class Product {
     priceElement = null;
     levelElement = null;
     farmCallBack = () => {};
-    farmInterval = 0;
+    farmInterval = 1000;
     isBought = false;
 
     constructor(img, name, income, price, multiplier, level) {
@@ -25,7 +25,6 @@ export class Product {
 
     updateDisplay() {
         if (this.priceElement && this.levelElement) {
-            console.log("updateDisplay");
             this.priceElement.textContent = this.price.toFixed(1);
             this.levelElement.textContent = this.level;
 

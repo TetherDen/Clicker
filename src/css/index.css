@@ -406,7 +406,7 @@ label {
 
 .golden-crystal {
   position: absolute;
-  width: 40px;
+  width: 70px;
   height: 60px;
   display: none;
   transition: transform 3s ease-out;
