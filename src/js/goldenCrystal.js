@@ -80,6 +80,21 @@ function showAndHide() {
 
 intervalId = setInterval(showAndHide, timeIntervalShow);
 
+// ф-я для активации x2 и добавления класса .gold
+function activateDoubleClick() {
+    if (isDoubleClickActive) return;
+    isDoubleClickActive = true;
+
+    crystal.classList.add('gold');
+    Game.setClickMultiplier(2);
+
+    boostTimeoutId = setTimeout(() => {
+        isDoubleClickActive = false;
+        crystal.classList.remove('gold');
+        Game.setClickMultiplier(1);
+    }, 60000);
+}
+
 crystal.onclick = function () {
     if (!isShow) return;
     // todo: вызов меттода что дает x2 на минуту
@@ -92,3 +107,4 @@ crystal.onclick = function () {
 
     intervalId = setInterval(showAndHide, timeIntervalShow);
 }
+
