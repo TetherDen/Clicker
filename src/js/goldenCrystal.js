@@ -1,4 +1,4 @@
-import {dropGoldenDiamondSound, spawnGoldenDiamondSound} from "./soundManager.js";
+import {dropGoldenDiamondSound, spawnGoldenDiamondSound, stopSoundGrowGoldenDiamond} from "./soundManager.js";
 
 const crystal = document.getElementById('golden-crystal');
 const board = document.getElementById('board');
@@ -75,25 +75,26 @@ function showAndHide() {
     timeoutId = setTimeout(() => {
         isShow = false;
         crystal.style.display = 'none';
+        stopSoundGrowGoldenDiamond();
     }, 60 * 1000)
 }
 
 intervalId = setInterval(showAndHide, timeIntervalShow);
 
 // ф-я для активации x2 и добавления класса .gold
-function activateDoubleClick() {
-    if (isDoubleClickActive) return;
-    isDoubleClickActive = true;
-
-    crystal.classList.add('gold');
-    Game.setClickMultiplier(2);
-
-    boostTimeoutId = setTimeout(() => {
-        isDoubleClickActive = false;
-        crystal.classList.remove('gold');
-        Game.setClickMultiplier(1);
-    }, 60000);
-}
+// function activateDoubleClick() {
+//     if (isDoubleClickActive) return;
+//     isDoubleClickActive = true;
+//
+//     crystal.classList.add('gold');
+//     Game.setClickMultiplier(2);
+//
+//     boostTimeoutId = setTimeout(() => {
+//         isDoubleClickActive = false;
+//         crystal.classList.remove('gold');
+//         Game.setClickMultiplier(1);
+//     }, 60000);
+// }
 
 crystal.onclick = function () {
     if (!isShow) return;

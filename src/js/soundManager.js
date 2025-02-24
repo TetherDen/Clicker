@@ -59,6 +59,12 @@ export function dropGoldenDiamondSound() {
     if(!isMuted) {
         sounds.goldenDiamondDrop.currentTime = 0;
         sounds.goldenDiamondDrop.play();
+        stopSoundGrowGoldenDiamond();
+    }
+}
+
+export function stopSoundGrowGoldenDiamond() {
+    if(!isMuted) {
         sounds.goldenDiamondGrow.pause();
         sounds.goldenDiamondGrow.currentTime = 0;
     }
