@@ -17,6 +17,8 @@ export class Game {
         new Excavator("excavator.png", "Excavator", 20, 1800, 1.20, 0),
         new Mine("mine.png", "Mine", 2, 4000, 1.8, 0),
     ];
+
+    static points = 0;
     static storeElement = document.getElementById('store-section');
     static scorePointsElement = document.getElementById('score-points');
     static localStorageKey = 'game';
@@ -62,12 +64,13 @@ export class Game {
     }
 
     static getScore() {
-        return Number(this.scorePointsElement.textContent);
+        return Number(this.points);
     }
 
     static setScore(newScore) {
         if (newScore >= 0) {
-            this.scorePointsElement.textContent = newScore.toFixed(1);
+            this.points = newScore.toFixed(1);
+            this.scorePointsElement.textContent = `${this.points}`;
         }
     }
 
