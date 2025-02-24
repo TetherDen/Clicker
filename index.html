@@ -25,8 +25,7 @@
         <canvas id="canvas-background" style="background: transparent;"></canvas>
         <canvas id="canvas-content"></canvas>
         <div class="settings js--press-sound" data-modal-id="settings-modal">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-gear"
-                 viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-gear" viewBox="0 0 16 16">
                 <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
                 <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
             </svg>
@@ -36,9 +35,9 @@
             <div class="crystal">
                 <div class="crystal__wrapper">
                     <div class="crystal__points">
-                        <span id="score-points" class="me-1">1000</span> points
+                        <span id="score-points" class="me-1">0</span> points
                     </div>
-                    <div class="crystal__item">
+                    <div class="crystal__item" id="crystal-item">
                         <img src="./src/images/crystal.png" alt="">
                     </div>
                 </div>
@@ -52,8 +51,7 @@
             <div class="position-relative">
                 <div class="store__title">Store</div>
                 <button class="store__info_button btn p-0 js--press-sound" data-modal-id="store-info-modal">
-                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                         stroke="#fff">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#fff">
                         <circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="2"></circle>
                         <line x1="12" y1="16" x2="12" y2="12" stroke="#fff" stroke-width="2"></line>
                         <circle cx="12" cy="8" r="1" fill="#fff"></circle>
@@ -71,8 +69,7 @@
                     <li class="store__info_list_item">
                         <div class="d-flex mb-1">
                             <div class="store__info_product_img_wrapper">
-                                <img class="store__info_product_img" src="src/images/products/pick.png" alt=""
-                                     style="transform: rotate(-40deg)">
+                                <img class="store__info_product_img" src="src/images/products/pick.png" alt="">
                             </div>
                             <div class="store__info_product_name">Pick</div>
                         </div>
