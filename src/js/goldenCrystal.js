@@ -13,7 +13,7 @@ const minSpace = 30;
 // состояние отображение кристалика
 let isShow = true;
 let intervalId, timeoutId;
-const timeIntervalShow = 20 * 1000;
+const timeIntervalShow = 3 * 60 * 1000;
 
 function display() {
     // устанавливаем изначальные координаты
@@ -76,7 +76,7 @@ function showAndHide() {
         isShow = false;
         crystal.style.display = 'none';
         stopSoundGrowGoldenDiamond();
-    }, 10 * 1000)
+    }, 60 * 1000)
 }
 
 intervalId = setInterval(showAndHide, timeIntervalShow);
