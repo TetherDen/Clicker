@@ -39,10 +39,6 @@ export function playBackgroundMusic() {
     sounds.backgroundMusic.play();
 }
 
-export function pauseBackgroundMusic() {
-    sounds.backgroundMusic.pause();
-}
-
 export function spawnGoldenDiamondSound() {
     if(!isMuted) {
         sounds.goldenDiamondSpawn.currentTime = 0;

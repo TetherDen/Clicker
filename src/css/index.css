@@ -149,7 +149,7 @@ label {
   transition: filter 0.3s ease-in-out;
   animation: light-shine 3s ease-in-out infinite;
 }
-.crystal__item.golden img {
+.crystal__item.gold img {
   animation: golden-shine 1s ease-in-out infinite;
 }
 @keyframes light-shine {
